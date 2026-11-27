@@ -1,0 +1,14 @@
+name: Check menu
+
+on: push
+
+permissions:
+  contents: read
+
+jobs:
+  check-menu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check expected price text
+        run: grep -F 'data-price="170"' index.html
